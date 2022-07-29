@@ -7,19 +7,6 @@ import javax.swing.border.TitledBorder;
 public class AppGrafica extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AppGrafica frame = new AppGrafica();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
 	public AppGrafica() {
 		setSize(330, 300);
@@ -91,13 +78,13 @@ public class AppGrafica extends JFrame {
 				String radioValue = btGroup.getSelection().getActionCommand();
 				String checkValue = " ";
 				if(cbProgramacion.isSelected()) {
-					 checkValue += cbProgramacion.getName() + " ";
+					 checkValue += cbProgramacion.getText() + " ";
 				}
 				if(cbDisenoGrafico.isSelected()) {
-					checkValue += cbDisenoGrafico.getName() + " ";
+					checkValue += cbDisenoGrafico.getText() + " ";
 				}
 				if(cbAdministracion.isSelected()) {
-					checkValue += cbAdministracion.getName() + " ";
+					checkValue += cbAdministracion.getText() + " ";
 				}
 				String msg = "Sistema Operativo:" + radioValue 
 						+ "\nEspecialidad:" + checkValue 
