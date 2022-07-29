@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
 
 public class AppGrafica {
 
@@ -50,6 +51,14 @@ public class AppGrafica {
 		JLabel lblerror2 = new JLabel("");
 		lblerror2.setForeground(Color.RED);
 		
+		JLabel lblHist1 = new JLabel("");
+		
+		JLabel lblHist2 = new JLabel("");
+		
+		JLabel lblHist3 = new JLabel("");
+		
+		JLabel lblHist4 = new JLabel("");
+		
 		JButton sumaButton = new JButton("+");
 		sumaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -65,6 +74,10 @@ public class AppGrafica {
 					result.setText(Integer.toString(operation));
 					lblerror1.setText("");
 					lblerror2.setText("");
+					lblHist4.setText(lblHist3.getText());
+					lblHist3.setText(lblHist2.getText());
+					lblHist2.setText(lblHist1.getText());
+					lblHist1.setText(result.getText());
 				}
 				
 			}
@@ -84,6 +97,10 @@ public class AppGrafica {
 					result.setText(Integer.toString(operation));
 					lblerror1.setText("");
 					lblerror2.setText("");
+					lblHist4.setText(lblHist3.getText());
+					lblHist3.setText(lblHist2.getText());
+					lblHist2.setText(lblHist1.getText());
+					lblHist1.setText(result.getText());
 				}
 			}
 		});
@@ -102,6 +119,10 @@ public class AppGrafica {
 					result.setText(Integer.toString(operation));
 					lblerror1.setText("");
 					lblerror2.setText("");
+					lblHist4.setText(lblHist3.getText());
+					lblHist3.setText(lblHist2.getText());
+					lblHist2.setText(lblHist1.getText());
+					lblHist1.setText(result.getText());
 				}
 			}
 		});
@@ -123,6 +144,10 @@ public class AppGrafica {
 					result.setText(Integer.toString(operation));
 					lblerror1.setText("");
 					lblerror2.setText("");
+					lblHist4.setText(lblHist3.getText());
+					lblHist3.setText(lblHist2.getText());
+					lblHist2.setText(lblHist1.getText());
+					lblHist1.setText(result.getText());
 				}
 			}
 		});
@@ -148,6 +173,9 @@ public class AppGrafica {
 		
 		JLabel lblResultado = new JLabel("Resultado");
 		
+		JLabel lblHistorial = new JLabel("Historial");
+		lblHistorial.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblHistorial.setForeground(new Color(0, 0, 0));		
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -173,24 +201,31 @@ public class AppGrafica {
 									.addComponent(num1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+										.addComponent(exitButton)
 										.addGroup(groupLayout.createSequentialGroup()
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(sumaButton)
-												.addComponent(multButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE))
-											.addGap(57)
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(divideButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
-												.addComponent(restaButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE))
-											.addGap(156))
+											.addComponent(num2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+											.addComponent(result, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblerror2, Alignment.LEADING))
+									.addGap(51))
+								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addGroup(groupLayout.createSequentialGroup()
-											.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-												.addComponent(exitButton)
-												.addGroup(groupLayout.createSequentialGroup()
-													.addComponent(num2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-													.addComponent(result, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-												.addComponent(lblerror2, Alignment.LEADING))
-											.addGap(51))))))))
+											.addComponent(sumaButton)
+											.addGap(18)
+											.addComponent(restaButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(multButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+											.addGap(18)
+											.addComponent(divideButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)))
+									.addGap(79)
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblHist2)
+										.addComponent(lblHist1)
+										.addComponent(lblHistorial)
+										.addComponent(lblHist3)
+										.addComponent(lblHist4))
+									.addGap(168))))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -211,17 +246,29 @@ public class AppGrafica {
 						.addComponent(lblerror2))
 					.addGap(26)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(sumaButton)
 						.addComponent(restaButton)
-						.addComponent(sumaButton))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(multButton)
-						.addComponent(divideButton))
-					.addGap(39)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(aboutButton)
-						.addComponent(exitButton))
-					.addContainerGap(25, Short.MAX_VALUE))
+						.addComponent(lblHistorial))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblHist1)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(8)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(multButton)
+								.addComponent(divideButton))
+							.addGap(29)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(aboutButton)
+								.addComponent(exitButton)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblHist2)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblHist3)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblHist4)))
+					.addContainerGap(39, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
