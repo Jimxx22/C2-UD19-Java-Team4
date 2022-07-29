@@ -16,31 +16,15 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 
-public class mainApp {
+public class AppGrafica extends JFrame{
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField textField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					mainApp window = new mainApp();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public mainApp() {
+	public AppGrafica() {
 		initialize();
 	}
 
